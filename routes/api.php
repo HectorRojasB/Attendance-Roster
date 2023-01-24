@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\StudentsController;
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,5 @@ use App\Http\Controllers\StudentsController;
 |
 */
 
-Route::resource('students', StudentsController::class);
+Route::resource("students", StudentsController::class);
+Route::resource("courses", CoursesController::class);
