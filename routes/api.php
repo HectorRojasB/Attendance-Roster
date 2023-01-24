@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\AttendancesController;
+use App\Http\Controllers\EnrollsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,6 +18,12 @@ use App\Http\Controllers\AttendancesController;
 |
 */
 
+//Resourse Routes
 Route::resource("students", StudentsController::class);
 Route::resource("courses", CoursesController::class);
 Route::resource("attendances", AttendancesController::class);
+
+//Custom Routes
+Route::resource("enrolls", EnrollsController::class)->only(["store"]);
+Route::get("/courses/{course}/students", [CoursesController::class, "getStudents"]);
+Route::get("/students/{student}/courses", [StudentsController::class, "getCourses"]);

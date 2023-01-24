@@ -36,4 +36,9 @@ class CoursesController extends Controller
         $course->delete();
         return response()->json(["message" => "COURSE_DELETED", "data" => null]);
     }
+
+    public function getStudents(Course $course): JsonResponse
+    {
+        return response()->json(["data" => $course->students]);
+    }
 }
