@@ -26,7 +26,7 @@ export const postAttendance = (data) => {
             students: data.students,
             attendance_date: data.attendance_date,
         })
-        .then((response) => {
-            console.log(response.data);
+        .then(() => {
+            (store.students = []), (store.selectedCourseId = 0);
         });
 };
