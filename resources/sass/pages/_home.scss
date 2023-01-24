@@ -1,0 +1,33 @@
+.home {
+    padding-top: 24px;
+    background: $body-bg;
+
+    .main-container {
+        padding: 12px 24px;
+        border-radius: 8px;
+        background: $main-grey;
+    }
+
+    .students-container,
+    .send-button-container {
+        margin-top: 24px;
+    }
+
+    .students-container {
+        .card {
+            margin-bottom: 10px;
+
+            .card-body {
+                font-size: 18px;
+                align-items: center;
+                justify-content: flex-start;
+            }
+        }
+    }
+
+    .form-check-input {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+    }
+}
