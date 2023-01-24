@@ -27,6 +27,7 @@ export const postAttendance = (data) => {
             attendance_date: data.attendance_date,
         })
         .then(() => {
+            $("#modal").modal("show");
             (store.students = []), (store.selectedCourseId = 0);
         });
 };

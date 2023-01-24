@@ -1,6 +1,7 @@
 <script setup>
 import Course from "../Course.vue";
 import Students from "../Students.vue";
+import Modal from "../Modal.vue";
 import { store } from "../../utils/store.js";
 
 const dateOptions = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
@@ -18,5 +19,6 @@ const currentDate = new Date().toLocaleDateString("en-US", dateOptions);
                 </div>
             </div>
         </div>
+        <Modal />
     </div>
 </template>
