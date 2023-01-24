@@ -9,6 +9,24 @@ export const getCourses = () => {
 
 export const getStudentsFromCourse = (id) => {
     return axios.get(`/api/courses/${id}/students`).then((response) => {
-        store.students = response.data;
+        store.students = Object.values(response.data.data).map((student) => {
+            return {
+                id: student.id,
+                name: `${student.last_name} ${student.first_name}`,
+                present: false,
+            };
+        });
     });
+};
+
+export const postAttendance = (data) => {
+    return axios
+        .post("/api/attendances", {
+            course_id: data.course_id,
+            students: data.students,
+            attendance_date: data.attendance_date,
+        })
+        .then((response) => {
+            console.log(response.data);
+        });
 };

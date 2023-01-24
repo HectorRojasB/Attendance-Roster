@@ -10,7 +10,7 @@ class Course extends Model
 
     public function attendances()
     {
-        return $this->hasMany(Attendances::class);
+        return $this->belongsToMany(Attendance::class, "attendances", "course_id", "student_id");
     }
 
     public function students()

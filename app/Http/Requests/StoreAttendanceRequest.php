@@ -9,10 +9,10 @@ class StoreAttendanceRequest extends FormRequest
     public function rules()
     {
         return [
-            "student_id" => "required|exists:students,id",
+            "students" => "required|array",
+            "students.*.id" => "required|exists:students,id",
+            "students.*.present" => "required|boolean",
             "course_id" => "required|exists:courses,id",
-            "present" => "required|boolean",
-            "attendance_date" => "required|date",
         ];
     }
 }

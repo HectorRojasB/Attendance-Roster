@@ -12,33 +12,17 @@ use App\Http\Requests\StoreAttendanceRequest;
 
 class AttendancesController extends Controller
 {
-    public function index()
-    {
-    }
-
     public function store(StoreAttendanceRequest $request): JsonResponse
     {
-        $attendance = Attendance::create([
-            "student_id" => $request->student_id,
-            "course_id" => $request->course_id,
-            "present" => $request->present,
-            "attendance_date" => $request->attendance_date,
-        ]);
-        return response()->json(["message" => "ATTENDANCE_CREATED", "data" => $attendance]);
-    }
-    public function show($id)
-    {
-    }
+        foreach ($request->students as $student) {
+            Attendance::create([
+                "student_id" => $student["id"],
+                "present" => $student["present"],
+                "course_id" => $request->course_id,
+                "attendance_date" => $request->attendance_date,
+            ]);
+        }
 
-    public function edit($id)
-    {
-    }
-
-    public function update(Request $request, $id)
-    {
-    }
-
-    public function destroy($id)
-    {
+        return response()->json(["message" => "ATTENDANCE_CREATED", "data" => null]);
     }
 }
