@@ -26,4 +26,5 @@ Route::resource("attendances", AttendancesController::class);
 //Custom Routes
 Route::resource("enrolls", EnrollsController::class)->only(["store"]);
 Route::get("/courses/{course}/students", [CoursesController::class, "getStudents"]);
+Route::get("/courses/{course}/attendances", [CoursesController::class, "getAttendances"]);
 Route::get("/students/{student}/courses", [StudentsController::class, "getCourses"]);

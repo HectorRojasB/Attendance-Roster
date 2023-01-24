@@ -23,7 +23,7 @@ class CoursesController extends Controller
         return response()->json(["message" => "COURSE_CREATED", "data" => $course]);
     }
 
-    public function update(StoreCourseRequest $request, Course $course)
+    public function update(StoreCourseRequest $request, Course $course): JsonResponse
     {
         $course->update([
             "name" => $request->name,
@@ -31,7 +31,7 @@ class CoursesController extends Controller
         return response()->json(["message" => "COURSE_UPDATED", "data" => $course]);
     }
 
-    public function destroy(Course $course)
+    public function destroy(Course $course): JsonResponse
     {
         $course->delete();
         return response()->json(["message" => "COURSE_DELETED", "data" => null]);
@@ -40,5 +40,14 @@ class CoursesController extends Controller
     public function getStudents(Course $course): JsonResponse
     {
         return response()->json(["data" => $course->students->sortBy("last_name")]);
+    }
+
+    public function getAttendances(Course $course): JsonResponse
+    {
+        $studentAttendances = $course
+            ->attendances()
+            ->with("student")
+            ->get();
+        return response()->json(["data" => $studentAttendances]);
     }
 }
