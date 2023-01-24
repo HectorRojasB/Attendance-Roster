@@ -7,8 +7,8 @@ export const getCourses = () => {
     });
 };
 
-export const getStudents = () => {
-    return axios.get("/api/students").then((response) => {
+export const getStudentsFromCourse = (id) => {
+    return axios.get(`/api/courses/${id}/students`).then((response) => {
         store.students = response.data;
     });
 };

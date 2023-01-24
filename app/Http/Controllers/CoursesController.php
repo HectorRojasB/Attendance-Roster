@@ -39,6 +39,6 @@ class CoursesController extends Controller
 
     public function getStudents(Course $course): JsonResponse
     {
-        return response()->json(["data" => $course->students]);
+        return response()->json(["data" => $course->students->sortBy("last_name")]);
     }
 }

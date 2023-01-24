@@ -1,14 +1,14 @@
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import { store } from "../../utils/store.js";
-import { getCourses, getStudents } from "../../utils/apiRoutes";
+import { getCourses, getStudentsFromCourse } from "../../utils/apiRoutes";
 
+const selectedCourse = ref();
 const dateOptions = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
 const currentDate = new Date().toLocaleDateString("en-US", dateOptions);
 
 onMounted(() => {
     getCourses();
-    getStudents();
 });
 </script>
 <template>
@@ -21,27 +21,34 @@ onMounted(() => {
                 <div class="text-start course-container">
                     <p class="label">Choose a course</p>
                     <div class="text-center select-course-container">
-                        <select class="form-select" aria-label="Default select example">
+                        <select
+                            v-model="selectedCourse"
+                            class="form-select"
+                            aria-label="Default select example"
+                            @change="getStudentsFromCourse(selectedCourse)"
+                        >
                             <option disabled selected>Select a course</option>
-                            <option v-for="course in store.courses.data" :key="course.id">
+                            <option v-for="course in store.courses.data" :value="course.id" :key="course.id">
                                 {{ course.name }}
                             </option>
                         </select>
                     </div>
                 </div>
 
-                <div class="students-container">
-                    <h4>Students</h4>
-                    <div class="card" v-for="student in store.students.data">
-                        <div class="d-flex card-body">
-                            <input class="form-check-input" type="checkbox" value="" />
-                            {{ student.last_name }}, {{ student.first_name }}
+                <div v-if="store.students.length != 0">
+                    <div class="students-container">
+                        <h4>Students</h4>
+                        <div class="card" v-for="student in store.students.data">
+                            <div class="d-flex card-body">
+                                <input class="form-check-input" type="checkbox" value="" />
+                                {{ student.last_name }}, {{ student.first_name }}
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="send-button-container">
-                    <button class="btn btn-primary">Save</button>
+                    <div class="send-button-container">
+                        <button class="btn btn-primary">Save</button>
+                    </div>
                 </div>
             </div>
         </div>
