@@ -50,15 +50,12 @@ DB_PASSWORD=your-password
 
 ## Usage 🎮
 
-### API
+## API
 
 Use [this](https://drive.google.com/file/d/1gnJ9ntZRLVKczn8zzcBWVeYubKUq4XSM/view?usp=share_link) postman collection.
 Create a variable `site_url`, for the value use your project's url
 
-
 https://user-images.githubusercontent.com/35705713/214633416-208e59c7-3f4c-40cd-bb7d-87ccaa09950b.mov
-
-
 
 ### Students
 
@@ -652,3 +649,23 @@ Response example (if attendances are new):
     "data": null
 }
 ```
+
+## Frontend
+
+---
+
+Use this command to run the project locally
+
+```
+npm run dev
+```
+
+In order the display the students, you need to choose a course, then all enrolled students will be displayed.
+
+Use the checkbox to indicate that the student is present, leave it empty if they are not present
+
+Click on save
+
+A modal will apear to indicate the attendance was saved. 
+
+
