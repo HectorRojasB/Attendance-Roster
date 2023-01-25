@@ -52,7 +52,8 @@ DB_PASSWORD=your-password
 
 ### API
 
-Use [this](https://drive.google.com/file/d/1gnJ9ntZRLVKczn8zzcBWVeYubKUq4XSM/view?usp=share_link) postman collection and replace the variable `site_url` for your local url for this project
+Use [this](https://drive.google.com/file/d/1gnJ9ntZRLVKczn8zzcBWVeYubKUq4XSM/view?usp=share_link) postman collection.
+Create a variable `site_url`, for the value use your project's url
 
 ### Students
 
