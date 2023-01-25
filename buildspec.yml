@@ -1,0 +1,9 @@
+version: 0.1
+phases:
+pre_build:
+commands:
+- composer update
+build:
+commands:
+- npm run build
+- php artisan serve
