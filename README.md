@@ -666,10 +666,22 @@ Use the checkbox to indicate that the student is present, leave it empty if they
 
 Click on save
 
-A modal will apear to indicate the attendance was saved. 
-
-
+A modal will apear to indicate the attendance was saved.
 
 https://user-images.githubusercontent.com/35705713/214636260-e417c926-6f5e-4f4a-b900-bdeb41e1fdbc.mov
 
+## Test
 
+This project includes a feature test
+
+```
+AttendanceControllerTest
+```
+
+in which the attendance store method will be tested. in order to run it use:
+
+```
+./vendor/bin/phpunit
+```
+
+on the terminal (project folder)
