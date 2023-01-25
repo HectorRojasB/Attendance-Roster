@@ -50,4 +50,18 @@ class CoursesController extends Controller
             ->get();
         return response()->json(["data" => $studentAttendances]);
     }
+
+    public function getByDate(Request $request, Course $course): JsonResponse
+    {
+        $request->validate([
+            "date" => "required|date",
+        ]);
+
+        $attendances = $course
+            ->attendances()
+            ->where("attendance_date", $request->date)
+            ->with("student")
+            ->get();
+        return response()->json(["data", $attendances]);
+    }
 }

@@ -471,7 +471,7 @@ Response example:
    }
 ```
 
-Get attendances for a course
+## Get attendances for a course
 
 Endpoint:
 
@@ -534,6 +534,74 @@ Response example:
    },
    ]
 }
+```
+
+## Get attendances for a course by date
+
+Endpoint:
+
+```
+{{site_url}}/api/courses/{id}/byDate
+```
+
+Method:
+
+```
+GET
+```
+
+Request body:
+
+```javascript
+{
+    "date": "2023-01-25"
+}
+```
+
+Response example:
+
+```javascript
+[
+    "data",
+    [
+        {
+            id: 9,
+            attendance_date: "2023-01-25",
+            present: 1,
+            student_id: 1,
+            course_id: 1,
+            created_at: "2023-01-25T11:18:49.000000Z",
+            updated_at: "2023-01-25T11:18:49.000000Z",
+            student: {
+                id: 1,
+                student_id: 1605092601799,
+                first_name: "Melvin",
+                last_name: "Levine",
+                email: "libero@ultricessitamet.co.uk",
+                created_at: "2023-01-25T02:22:00.000000Z",
+                updated_at: "2023-01-25T02:22:00.000000Z",
+            },
+        },
+        {
+            id: 10,
+            attendance_date: "2023-01-25",
+            present: 1,
+            student_id: 2,
+            course_id: 1,
+            created_at: "2023-01-25T11:18:49.000000Z",
+            updated_at: "2023-01-25T11:18:49.000000Z",
+            student: {
+                id: 2,
+                student_id: 1627060401499,
+                first_name: "Elaine",
+                last_name: "Donaldson",
+                email: "Morbi.vehicula@imperdiet.ca",
+                created_at: "2023-01-25T02:22:00.000000Z",
+                updated_at: "2023-01-25T02:22:00.000000Z",
+            },
+        },
+    ],
+];
 ```
 
 ## Enrolls
