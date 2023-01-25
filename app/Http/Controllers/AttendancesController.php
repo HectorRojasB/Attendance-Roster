@@ -15,14 +15,15 @@ class AttendancesController extends Controller
     public function store(StoreAttendanceRequest $request): JsonResponse
     {
         foreach ($request->students as $student) {
-            Attendance::create([
+            $attendances[] = [
                 "student_id" => $student["id"],
                 "present" => $student["present"],
                 "course_id" => $request->course_id,
                 "attendance_date" => $request->attendance_date,
-            ]);
+            ];
         }
 
+        Attendance::insert($attendances);
         return response()->json(["message" => "ATTENDANCE_CREATED", "data" => null]);
     }
 }
