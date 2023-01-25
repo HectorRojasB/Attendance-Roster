@@ -54,6 +54,7 @@ DB_PASSWORD=your-password
 
 Use [this](https://drive.google.com/file/d/1gnJ9ntZRLVKczn8zzcBWVeYubKUq4XSM/view?usp=share_link) postman collection.
 Create a variable `site_url`, for the value use your project's url
+![Captura de pantalla 2023-01-25 a la(s) 9 45 24](https://user-images.githubusercontent.com/35705713/214633226-555a0af8-d4b5-4f90-9252-f9f468e4eb90.png)
 
 ### Students
 
