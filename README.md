@@ -669,3 +669,7 @@ Click on save
 A modal will apear to indicate the attendance was saved. 
 
 
+
+https://user-images.githubusercontent.com/35705713/214636260-e417c926-6f5e-4f4a-b900-bdeb41e1fdbc.mov
+
+
