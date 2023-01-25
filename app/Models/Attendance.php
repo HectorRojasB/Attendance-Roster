@@ -15,4 +15,11 @@ class Attendance extends Model
     {
         return $this->belongsTo(Student::Class);
     }
+    public function scopeSearchForDuplicates($query, $student_id, $course_id, $date)
+    {
+        return $query
+            ->where("student_id", $student_id)
+            ->where("course_id", $course_id)
+            ->where("attendance_date", $date);
+    }
 }
